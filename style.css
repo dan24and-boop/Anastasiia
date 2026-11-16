@@ -610,3 +610,553 @@ img{
 .footer-credit{
     text-align: right;
 }
+
+
+/* =========================================================
+   ADAPTIVE — TABLET (≤ 768px)
+   ========================================================= */
+
+@media (max-width: 768px){
+
+    h1{
+        font-size: 54px;
+    }
+    h2{
+        margin-bottom: 35px;
+        font-size: 40px;
+    }
+    .container{
+        width: 90%;
+    }
+    .section{
+        padding-block: 70px;
+    }
+    .grid-lines,
+    .reviews-section::before{
+        background-size: 50% 100%;
+    }
+    .reviews-section::before{
+        width: 90%;
+    }
+
+    /* HEADER — фото на весь екран з темним шаром */
+
+    .header{
+        position: relative;
+        isolation: isolate;
+        display: flex;
+        flex-direction: column;
+        height: auto;
+        min-height: 1000px;
+        background: #102536;
+    }
+    .header::before{
+        content: "";
+        position: absolute;
+        inset: 0;
+        z-index: -1;
+        background: #102536d9;
+    }
+    .header-bar{
+        position: relative;
+        z-index: 3;
+        grid-template-columns: 1fr auto;
+        min-height: 110px;
+        background: none;
+        border: 0;
+    }
+    .logo{
+        grid-column: 1;
+        grid-row: 1;
+        justify-self: start;
+        margin-left: 0;
+    }
+    .logo img{
+        width: 85px;
+    }
+    .menu{
+        grid-column: 2;
+        grid-row: 1;
+        justify-self: end;
+    }
+    .menu summary{
+        font-size: 40px;
+        line-height: 1;
+    }
+    .menu nav{
+        left: auto;
+        right: 0;
+        width: 240px;
+    }
+    .menu nav a{
+        font-family: "Raleway";
+        font-size: 18px;
+    }
+    .phone,
+    .header-social{
+        display: none;
+    }
+    .hero{
+        position: static;
+        flex: 1;
+        grid-template-columns: 1fr;
+        min-height: 0;
+    }
+    .hero-image{
+        inset: 0;
+        z-index: -2;
+        object-position: center;
+    }
+    .hero-content{
+        justify-items: center;
+        gap: 30px;
+        padding: 40px 0 160px;
+        background: none;
+        text-align: center;
+    }
+    .hero-content p{
+        max-width: 440px;
+        font-size: 18px;
+    }
+    .hero-content .button{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 12px;
+        width: 100%;
+        max-width: 440px;
+        height: 80px;
+        font-size: 20px;
+    }
+    .hero-content::after{
+        content: "\2193";
+        position: absolute;
+        left: 50%;
+        bottom: 50px;
+        transform: translateX(-50%);
+        color: #ffffff80;
+        font-size: 70px;
+        font-weight: 100;
+        line-height: 1;
+    }
+
+    /* ADVANTAGES — 2 колонки «драбинкою» */
+
+    .advantages{
+        grid-template-columns: repeat(2, 1fr);
+        gap: 40px 0;
+    }
+    .advantages article{
+        max-width: 300px;
+        padding-right: 20px;
+    }
+    .advantages article:nth-child(even){
+        margin-top: 160px;
+    }
+    .advantages article:nth-child(3){
+        margin-top: -120px;
+    }
+
+    /* PORTFOLIO — горизонтальна стрічка */
+
+    .projects{
+        display: flex;
+        gap: 0;
+        width: 100vw;
+        margin-inline: calc(50% - 50vw);
+        padding-inline: 10vw;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        scroll-padding-inline: 10vw;
+        scrollbar-width: none;
+    }
+    .projects::-webkit-scrollbar{
+        display: none;
+    }
+    .project{
+        flex: 0 0 80%;
+        min-height: 620px;
+        scroll-snap-align: center;
+    }
+
+    /* SERVICES */
+
+    .services{
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+    .service-list{
+        grid-template-columns: repeat(2, 1fr);
+        gap: 30px 20px;
+        width: auto;
+    }
+    .service-list .service-active,
+    .service-list p:hover{
+        transform: none;
+    }
+    .service-image{
+        width: 100vw;
+        max-width: none;
+        height: 390px;
+        margin-inline: calc(50% - 50vw);
+        object-fit: cover;
+    }
+    .service-description{
+        grid-template-columns: 1fr 1fr;
+        gap: 20px 40px;
+        margin-top: 40px;
+    }
+    .service-panel{
+        width: auto;
+        padding-top: 0;
+    }
+    .service-content h3{
+        font-size: 26px;
+    }
+    .service-action{
+        align-content: start;
+    }
+    .project-count{
+        font-size: 22px;
+    }
+    .service-content .button{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        min-width: 260px;
+        height: 70px;
+        border-width: 2px;
+    }
+
+    /* VIDEO */
+
+    .studio{
+        min-height: 820px;
+    }
+
+    /* STEPS — 2 колонки */
+
+    .steps{
+        grid-template-columns: repeat(2, 1fr);
+        gap: 60px 30px;
+        margin-left: 0;
+        padding: 0;
+    }
+    .steps li{
+        grid-template-columns: 55px 1fr;
+        gap: 20px;
+    }
+
+    /* CONTACT — фото фоном, форма по центру */
+
+    .contact{
+        position: relative;
+        isolation: isolate;
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+    .contact::before{
+        content: "";
+        position: absolute;
+        inset: 0;
+        z-index: -1;
+        background: #162a3ad9;
+    }
+    .contact-image{
+        position: absolute;
+        inset: 0;
+        z-index: -2;
+        height: 100%;
+    }
+    .contact-content{
+        width: 90%;
+        padding-block: 90px 100px;
+    }
+    .contact-form{
+        gap: 35px;
+        margin-top: 50px;
+        text-align: left;
+    }
+    .contact-form label{
+        color: #e1e5e8;
+        font-family: "Raleway";
+        font-size: 18px;
+    }
+    .contact-form input{
+        padding: 6px 0;
+        border-bottom: 3px solid #b8aea4;
+    }
+    .contact-form button{
+        height: 72px;
+        margin-top: 20px;
+        border: 0;
+        border-radius: 4px;
+        background: #f8a15a;
+        font-size: 20px;
+        cursor: pointer;
+    }
+    .contact-form .form-note{
+        text-align: center;
+    }
+
+    /* REVIEWS — одна картка, фото виходить за край */
+
+    .reviews-section h2{
+        margin-bottom: 60px;
+    }
+    .reviews{
+        grid-template-columns: 1fr;
+        width: 90%;
+        margin-inline: auto;
+    }
+    .review-side{
+        display: none;
+    }
+    .review{
+        position: relative;
+        grid-template-columns: 1fr;
+        width: 85%;
+        padding: 60px 120px 50px 40px;
+        background: #fff;
+        box-shadow: 0 20px 40px #162a3a14;
+    }
+    .review-photo{
+        position: absolute;
+        top: 40px;
+        right: -20%;
+        width: 190px;
+        box-shadow: 0 10px 30px #162a3a26;
+    }
+
+    /* FOOTER */
+
+    .footer{
+        height: auto;
+        padding-block: 70px;
+    }
+    .footer-content{
+        margin-top: 0;
+    }
+    .footer-text{
+        font-size: 15px;
+    }
+}
+
+
+/* =========================================================
+   ADAPTIVE — PHONE (≤ 470px)
+   ========================================================= */
+
+@media (max-width: 470px){
+
+    h1{
+        font-size: 40px;
+    }
+    h2{
+        margin-bottom: 30px;
+        font-size: 32px;
+    }
+    h3{
+        font-size: 20px;
+    }
+    .container{
+        width: calc(100% - 32px);
+    }
+    .section{
+        padding-block: 60px;
+    }
+    .grid-lines,
+    .reviews-section::before{
+        background-image: none;
+        border: 0;
+    }
+
+    /* HEADER */
+
+    .header{
+        min-height: 610px;
+    }
+    .header-bar{
+        min-height: 80px;
+    }
+    .logo img{
+        width: 55px;
+    }
+    .menu summary{
+        font-size: 32px;
+    }
+    .hero-content{
+        gap: 22px;
+        padding: 30px 0 110px;
+    }
+    .hero-content p{
+        font-size: 16px;
+    }
+    .hero-content .button{
+        max-width: 260px;
+        height: 54px;
+        padding-inline: 16px;
+        font-size: 16px;
+        white-space: nowrap;
+    }
+    .hero-content::after{
+        bottom: 30px;
+        font-size: 50px;
+    }
+
+    /* ADVANTAGES — одна колонка */
+
+    .advantages{
+        grid-template-columns: 1fr;
+        gap: 45px;
+    }
+    .advantages article{
+        max-width: none;
+        padding-right: 0;
+    }
+    .advantages article:nth-child(even),
+    .advantages article:nth-child(3){
+        margin-top: 0;
+    }
+    .advantage-number{
+        margin-bottom: 0;
+        font-size: 90px;
+        line-height: 1.1;
+    }
+
+    /* PORTFOLIO */
+
+    .filters{
+        gap: 10px 22px;
+    }
+    .filters p{
+        font-size: 16px;
+    }
+    .projects{
+        padding-inline: 16px;
+        scroll-padding-inline: 16px;
+    }
+    .project{
+        flex: 0 0 72%;
+        min-height: 430px;
+    }
+
+    /* SERVICES */
+
+    .service-list{
+        grid-template-columns: 1fr;
+        gap: 18px;
+    }
+    .service-image{
+        height: 300px;
+    }
+    .service-description{
+        grid-template-columns: 1fr;
+        gap: 30px;
+        margin-top: 30px;
+    }
+    .service-content h3{
+        font-size: 22px;
+    }
+    .service-action{
+        justify-items: center;
+    }
+    .service-content .button{
+        min-width: 0;
+        max-width: 220px;
+        height: 58px;
+    }
+
+    /* VIDEO */
+
+    .studio{
+        min-height: 620px;
+    }
+    .studio-content i{
+        width: 84px;
+        height: 84px;
+    }
+
+    /* STEPS — одна колонка без кружечків */
+
+    .steps{
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+    .steps li{
+        grid-template-columns: 1fr;
+    }
+    .step-number{
+        display: none;
+    }
+
+    /* CONTACT */
+
+    .contact-content{
+        width: calc(100% - 32px);
+        padding-block: 70px 80px;
+    }
+    .contact-form{
+        gap: 30px;
+        margin-top: 40px;
+    }
+    .contact-form label i{
+        display: none;
+    }
+    .contact-form button{
+        height: 70px;
+    }
+
+    /* REVIEWS — фото зверху по центру */
+
+    .reviews{
+        width: calc(100% - 24px);
+    }
+    .review{
+        width: 100%;
+        margin-top: 40px;
+        padding: 0 30px 45px;
+        text-align: center;
+    }
+    .review-photo{
+        position: static;
+        order: -1;
+        width: 75%;
+        margin: -40px auto 15px;
+    }
+
+    /* FOOTER — все по центру стовпчиком */
+
+    .footer{
+        padding-block: 90px 70px;
+    }
+    .footer-content{
+        grid-template-columns: 1fr;
+        justify-items: center;
+        gap: 0;
+        text-align: center;
+    }
+    .footer-content > div{
+        order: -1;
+        margin-bottom: 50px;
+    }
+    .footer-logo{
+        width: 70px;
+        margin-bottom: 40px;
+    }
+    .footer .social{
+        gap: 70px;
+    }
+    .footer .social img{
+        max-width: 28px;
+        max-height: 28px;
+        margin-left: 0;
+    }
+    .footer-text{
+        font-size: 18px;
+    }
+    .footer-credit{
+        text-align: center;
+    }
+}
