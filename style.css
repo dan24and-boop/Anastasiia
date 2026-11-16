@@ -728,6 +728,9 @@ img{
         height: 80px;
         font-size: 20px;
     }
+    .hero-content .button i{
+        display: none;
+    }
     .hero-content::after{
         content: "\2193";
         position: absolute;
@@ -757,26 +760,41 @@ img{
         margin-top: -120px;
     }
 
-    /* PORTFOLIO — горизонтальна стрічка */
+    /* PORTFOLIO — фото по центру, сусідні визирають з боків */
 
     .projects{
-        display: flex;
-        gap: 0;
+        grid-template-columns: 11vw minmax(0, 1fr) 11vw;
         width: 100vw;
         margin-inline: calc(50% - 50vw);
-        padding-inline: 10vw;
-        overflow-x: auto;
-        scroll-snap-type: x mandatory;
-        scroll-padding-inline: 10vw;
-        scrollbar-width: none;
-    }
-    .projects::-webkit-scrollbar{
-        display: none;
+        overflow: hidden;
     }
     .project{
-        flex: 0 0 80%;
-        min-height: 620px;
-        scroll-snap-align: center;
+        min-height: 610px;
+        padding: 0;
+    }
+    .project img{
+        object-fit: cover;
+    }
+    .project:nth-child(4){
+        display: none;
+    }
+    .project:nth-child(1) img{
+        object-position: right center;
+    }
+    .project:nth-child(3) img{
+        object-position: left center;
+    }
+    /* бокові — під темним шаром, центральне — світле */
+    .project:nth-child(1)::before,
+    .project:nth-child(3)::before{
+        background: #1b3550d9;
+    }
+    .project:nth-child(2)::before{
+        opacity: 0;
+    }
+    .project .project-title,
+    .project .project-category{
+        display: none;
     }
 
     /* SERVICES */
@@ -1034,12 +1052,10 @@ img{
         font-size: 16px;
     }
     .projects{
-        padding-inline: 16px;
-        scroll-padding-inline: 16px;
+        grid-template-columns: 6vw minmax(0, 1fr) 9vw;
     }
     .project{
-        flex: 0 0 72%;
-        min-height: 430px;
+        min-height: 480px;
     }
 
     /* SERVICES */
