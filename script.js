@@ -1,10 +1,12 @@
-showBtn.onclick = function () {
-    let birthYear = Number(document.getElementById("birthYear").value);
-    let text = "";
+let showBtn = document.querySelector("#showBtn");
+let birthYear = document.querySelector("#birthYear");
+let box = document.querySelector("#result");
 
-    for (let year = birthYear; year <= 2026; year++) {
-        text += year + " - " + (year - birthYear) + " р.<br>";
+showBtn.addEventListener("click", function(){
+    let result = "";
+    let year = Number(birthYear.value);
+    for (let i = year; i <= 2026; i++){
+        result += `${i} - ${i - year} р.<br>`;
     }
-
-    document.getElementById("result").innerHTML = text;
-};
+    box.innerHTML = result;
+})
