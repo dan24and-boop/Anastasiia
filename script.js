@@ -1,39 +1,20 @@
-const birthYearInput = document.getElementById("birthYear");
-const showBtn = document.getElementById("showBtn");
-const result = document.getElementById("result");
+let btn = document.getElementById("showBtn");
 
-// Правильне слово: 1 рік, 2 роки, 5 років
-function getYearWord(age) {
-    const lastTwo = age % 100;
-    const last = age % 10;
-
-    if (lastTwo >= 11 && lastTwo <= 14) {
-        return "років";
-    }
-    if (last === 1) {
-        return "рік";
-    }
-    if (last >= 2 && last <= 4) {
-        return "роки";
-    }
-    return "років";
-}
-
-showBtn.addEventListener("click", function () {
-    const birthYear = Number(birthYearInput.value);
-    const currentYear = new Date().getFullYear();
-
+btn.onclick = function () {
+    let birthYear = Number(document.getElementById("birthYear").value);
+    let result = document.getElementById("result");
     result.innerHTML = "";
 
-    if (!birthYear || birthYear > currentYear) {
-        result.textContent = "Введіть правильний рік народження";
-        return;
-    }
+    for (let year = birthYear; year <= 2026; year++) {
+        let age = year - birthYear;
+        let word = "років";
 
-    for (let year = birthYear; year <= currentYear; year++) {
-        const age = year - birthYear;
-        const p = document.createElement("p");
-        p.textContent = year + " - " + age + " " + getYearWord(age);
-        result.appendChild(p);
+        if (age % 10 == 1 && age != 11) {
+            word = "рік";
+        } else if (age % 10 >= 2 && age % 10 <= 4 && (age < 12 || age > 14)) {
+            word = "роки";
+        }
+
+        result.innerHTML += year + " - " + age + " " + word + "<br>";
     }
-});
+};
